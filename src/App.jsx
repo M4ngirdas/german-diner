@@ -1,6 +1,20 @@
 
-export default function App(){
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+import Home from "./pages/Home.jsx"
+import Menu from "./pages/Menu.jsx"
+
+export default function App() {
+
     return (
-        <h1>Hello world</h1>
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route index element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/menu" element={<Menu />} />
+                </Routes>
+            </BrowserRouter>
+        </>
     )
 }

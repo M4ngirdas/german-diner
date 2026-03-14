@@ -1,2 +1,26 @@
 
 @import "tailwindcss";
+
+@theme {
+    --font-display: "Bricolage Grotesque"
+}
+
+@layer base {
+    * {
+        @apply font-display
+    }
+
+    body {
+        @apply bg-[#003B31]
+    }
+
+    button {
+        @apply cursor-pointer select-none
+    }
+}
+
+@layer components {
+    #root {
+        @apply h-screen
+    }
+}
