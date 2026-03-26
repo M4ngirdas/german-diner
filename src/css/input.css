@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque";
+  --color-silver: #cdcccd;
+  --color-metallic-gold: #c9ab31;
+  --color-evergreen: #003b31;
+  --color-evergreen-darker: #00221f;
+}
+
+@layer base {
+  * {
+    @apply font-display scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#003B31];
+  }
+
+  button,
+  a {
+    @apply cursor-pointer select-none;
+  }
+}
+
+@layer components {
+  #root {
+    @apply h-screen;
+  }
+}
