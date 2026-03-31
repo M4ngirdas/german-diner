@@ -11,7 +11,7 @@ import pretzelDeal from "../images/special_deals/pretzel_deal.png"
 import coffeeDeal from "../images/special_deals/coffee_deal.png"
 import schnitzelWithSalad from "../images/menu/schnitzel_with_salad.png"
 
-export default function Home() {
+export default function Home(props) {
 
     const [specialDeals, setSpecialDeals] = useState(
         { weekendSpecial: true, pretzelDeal: false, coffeeDeal: false }
@@ -21,8 +21,8 @@ export default function Home() {
 
     return (
         <div className="flex flex-col items-center gap-6 mt-6">
-            <Header />
-            <main className="grid gap-12 w-2/3 text-silver">
+            <Header cartItems={props.cartItems} setCartItems={props.setCartItems} menuItems={props.menuItems} setMenuItems={props.setMenuItems}/>
+            <main className="grid gap-12 w-2/3">
                 <section className="grid content-start gap-6">
                     <div className="flex gap-6 flex-1 w-full">
                         <aside className="flex flex-col gap-2 h-85">
@@ -57,7 +57,7 @@ export default function Home() {
                                     order for delivery or reserve a table!
                                 </p>
                             </div>
-                            <button onClick={() => navigate("/menu")} className="flex items-center gap-2 absolute bottom-2 right-2 rounded-xs py-2 px-4 text-lg z-20 font-medium border border-metallic-gold bg-metallic-gold/40 text-silver">explore our menu<ChevronRight /></button>
+                            <button onClick={() => navigate("/menu")} className="flex items-center gap-2 absolute bottom-2 right-2 rounded-xs py-2 px-4 text-lg z-20 font-medium border border-metallic-gold bg-metallic-gold/40">explore our menu<ChevronRight /></button>
                             <div className="flex overflow-hidden">
                                 <img
                                     className="flex-1 object-cover rounded-xs brightness-40"

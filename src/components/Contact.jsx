@@ -14,7 +14,7 @@ export default function Contact() {
                     </div>
                     <div className="flex items-center gap-2 p-2 rounded-full bg-evergreen-darker">
                         <span className="p-2 rounded-full bg-evergreen"><Phone /></span>
-                        <p>+49 55 5555 5555</p>
+                        <p>+49 00 00000000</p>
                     </div>
                 </address>
                 <div className="grid content-start gap-2 flex-1">

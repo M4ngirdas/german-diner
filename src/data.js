@@ -1,28 +1,31 @@
 
 import { nanoid } from "nanoid"
 
-export const menuItems = [
+export const menuItemsData = [
     // main dishes
     {
         id: nanoid(),
         name: "Pork Schnitzel with salad",
-        price: "15",
+        price: 15,
+        quantity: 1,
         category: "mainDishes",
         imgSrc: "/src/images/menu/schnitzel_with_salad.png",
         imgAlt: "Pork schnitzel with salad"
     },
     {
         id: nanoid(),
-        name: "Potato dumplings (Kartoffelklöße)",
-        price: "15",
+        name: "Potato dumplings",
+        price: 15,
+        quantity: 1,
         category: "mainDishes",
         imgSrc: "/src/images/menu/potato_dumplings.png",
-        imgAlt: "Potato dumplings (Kartoffelklöße)"
+        imgAlt: "Potato dumplings"
     },
     {
         id: nanoid(),
         name: "Bavarian Pot Roast",
-        price: "15",
+        price: 15,
+        quantity: 1,
         category: "mainDishes",
         imgSrc: "/src/images/menu/pot_roast.png",
         imgAlt: "Bavarian Pot Roast"
@@ -30,7 +33,8 @@ export const menuItems = [
     {
         id: nanoid(),
         name: "Bratwurst and sauerkraut",
-        price: "15",
+        price: 15,
+        quantity: 1,
         category: "mainDishes",
         imgSrc: "/src/images/menu/bratwurst_and_sauerkraut.png",
         imgAlt: "Bratwurst and sauerkraut"
@@ -41,19 +45,21 @@ export const menuItems = [
     // soups
     {
         id: nanoid(),
-        name: "Potato soup (Kartoffelsuppe)",
-        price: "12",
+        name: "Potato soup",
+        price: 12,
+        quantity: 1,
         category: "soups",
         imgSrc: "/src/images/menu/potato_soup.png",
-        imgAlt: "Potato soup (Kartoffelsuppe)"
+        imgAlt: "Potato soup"
     },
     {
         id: nanoid(),
-        name: "Goulash soup (Gulaschsuppe)",
-        price: "12",
+        name: "Goulash soup",
+        price: 12,
+        quantity: 1,
         category: "soups",
         imgSrc: "/src/images/menu/goulash_soup.png",
-        imgAlt: "Goulash soup (Gulaschsuppe)"
+        imgAlt: "Goulash soup"
     },
 
 
@@ -62,7 +68,8 @@ export const menuItems = [
     {
         id: nanoid(),
         name: "Pretzel",
-        price: "3",
+        price: 3,
+        quantity: 1,
         category: "bakery",
         imgSrc: "/src/images/menu/pretzel.png",
         imgAlt: "Pretzel"
@@ -70,7 +77,8 @@ export const menuItems = [
     {
         id: nanoid(),
         name: "Cinamon rolls",
-        price: "3",
+        price: 3,
+        quantity: 1,
         category: "bakery",
         imgSrc: "/src/images/menu/cinamon_rolls.png",
         imgAlt: "Cinamon rolls"
@@ -81,19 +89,21 @@ export const menuItems = [
     // dessert
     {
         id: nanoid(),
-        name: "Bee sting cake (Bienenstich)",
-        price: "12",
+        name: "Bee sting cake",
+        price: 12,
+        quantity: 1,
         category: "dessert",
         imgSrc: "/src/images/menu/bee_sting_cake.png",
-        imgAlt: "Bee sting cake (Bienenstich)"
+        imgAlt: "Bee sting cake"
     },
     {
         id: nanoid(),
-        name: "Red berry pudding (Rote Grütze)",
-        price: "12",
+        name: "Red berry pudding",
+        price: 12,
+        quantity: 1,
         category: "dessert",
         imgSrc: "/src/images/menu/red_berry_pudding.png",
-        imgAlt: "Red berry pudding (Rote Grütze)"
+        imgAlt: "Red berry pudding"
     },
 
 
@@ -102,17 +112,19 @@ export const menuItems = [
     {
         id: nanoid(),
         name: "Red wine",
-        price: "6",
+        price: 6,
+        quantity: 1,
         category: "drinks",
         imgSrc: "/src/images/menu/red_wine.png",
         imgAlt: "Red wine"
     },
     {
         id: nanoid(),
-        name: "Dark beer (Dunkel)",
-        price: "5",
+        name: "Dark beer",
+        price: 5,
+        quantity: 1,
         category: "drinks",
         imgSrc: "/src/images/menu/dark_beer.png",
-        imgAlt: "Dark beer (Dunkel)"
+        imgAlt: "Dark beer"
     }
 ]

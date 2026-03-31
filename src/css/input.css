@@ -14,12 +14,28 @@
   }
 
   body {
-    @apply bg-[#003B31];
+    @apply bg-evergreen text-silver;
   }
 
   button,
   a {
     @apply cursor-pointer select-none;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 p-2
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-silver/40
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-silver/80
+  }
+
+  ::-webkit-scrollbar-button {
+    @apply hidden
   }
 }
 

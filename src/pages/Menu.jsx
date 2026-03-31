@@ -1,16 +1,29 @@
 
 import { useState } from "react"
-import { menuItems } from "../data.js"
 
 import Header from "../components/Header.jsx"
 import { MenuIcon, Plus, Search } from "lucide-react"
 
-export default function Menu() {
+export default function Menu(props) {
+
+    console.log(props.cartItems)
 
     const [searchValue, setSearchValue] = useState("")
     const [currentCategory, setCurrentCategory] = useState("all")
 
-    const menuElements = menuItems.map(item => (
+    function addToCart(item) {
+        props.setCartItems(prev => {
+            const cartItemDuplicate = prev.find(itemDuplicate => itemDuplicate.id === item.id)
+            if (cartItemDuplicate) {
+                return prev.map(itemDuplicate => itemDuplicate.id === item.id ? { ...itemDuplicate, quantity: itemDuplicate.quantity + 1 } : itemDuplicate)
+            }
+            else {
+                return [...prev, item]
+            }
+        })
+    }
+
+    const menuElements = props.menuItems.map(item => (
         <li key={item.id} className={`${item.name.toLowerCase().includes(searchValue.toLowerCase()) ? "grid" : "hidden"} ${currentCategory === item.category || currentCategory === "all" ? "grid" : "hidden"} content-end relative`}>
             <h1 className="">{item.name}</h1>
             <img
@@ -21,15 +34,15 @@ export default function Menu() {
             />
             <div className="flex justify-between absolute bottom-0 p-1 w-full bg-black/60">
                 <p className="flex items-center text-xl">€{item.price}</p>
-                <button className="flex justify-center items-center gap-2 rounded-xs p-2 border border-metallic-gold bg-metallic-gold/30"><Plus /></button>
+                <button onClick={() => addToCart(item)} className="flex justify-center items-center gap-2 rounded-xs p-2 border border-metallic-gold bg-metallic-gold/30"><Plus /></button>
             </div>
         </li>
     ))
 
     return (
         <>
-            <div onLoadedData={() => console.log("nigger")} className="flex flex-col items-center gap-6 py-6 h-full">
-                <Header />
+            <div className="flex flex-col items-center gap-6 py-6 h-full">
+                <Header cartItems={props.cartItems} setCartItems={props.setCartItems} />
                 <main className="flex gap-6 w-2/3 h-full text-silver">
                     <div className="grid content-start gap-6 w-full">
                         <div className="flex flex-1 rounded-xs focus-within:outline focus-within:outline-silver/70 text-silver/70 bg-evergreen-darker">
