@@ -54,9 +54,9 @@ export default function Cart(props) {
 
     return (
         <div className="grid gap-4 w-sm rounded-xl absolute left-1/2 -translate-x-1/2 p-4 border border-silver/30 bg-evergreen-darker">
-            <h2 className="flex items-center gap-2 text-2xl"><ShoppingCart />SHOPPING CART</h2>
+            <h2 className="flex items-center gap-2 text-2xl"><ShoppingCart />CART</h2>
             <div className="grid gap-2">
-                {props.cartItems.length === 0 ? <p>your shopping cart is empty!<br /> <a onClick={() => navigate("/menu")} className="underline text-metallic-gold">explore our menu</a></p> : null}
+                {props.cartItems.length === 0 ? <p>your cart is empty!<br /> <a onClick={() => navigate("/menu")} className="underline text-metallic-gold">explore our menu</a></p> : null}
                 <ul className={`${props.cartItems.length > 3 ? "w-full h-90 overflow-y-scroll pr-2" : ""} flex flex-col gap-2`}>{cartElements}</ul>
                 {props.cartItems.length !== 0 ? <p className="text-lg">Total: €{total}</p> : null}
                 {props.cartItems.length !== 0 ? <button className="flex justify-between items-center gap-2 rounded-xs py-2 px-4 border border-metallic-gold bg-metallic-gold/40">Continue to payment <ChevronRight /></button> : null}

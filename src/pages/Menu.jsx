@@ -1,15 +1,14 @@
 
 import { useState } from "react"
+import { MenuIcon, Plus, Search, Check } from "lucide-react"
 
 import Header from "../components/Header.jsx"
-import { MenuIcon, Plus, Search } from "lucide-react"
 
 export default function Menu(props) {
 
-    console.log(props.cartItems)
-
     const [searchValue, setSearchValue] = useState("")
     const [currentCategory, setCurrentCategory] = useState("all")
+    const [isNotificationShown, setIsNotificationShown] = useState(false)
 
     function addToCart(item) {
         props.setCartItems(prev => {
@@ -18,32 +17,50 @@ export default function Menu(props) {
                 return prev.map(itemDuplicate => itemDuplicate.id === item.id ? { ...itemDuplicate, quantity: itemDuplicate.quantity + 1 } : itemDuplicate)
             }
             else {
-                return [...prev, item]
+                return [...prev, { ...item, quantity: 1 }]
             }
         })
     }
 
+    function checkQuantity(id){
+        return props.cartItems.some(item => item.id === id && item.quantity === 10)
+    }
+
+    function showNotification() {
+        setIsNotificationShown(true)
+        setTimeout(() => setIsNotificationShown(false), 2000)
+    }
+
     const menuElements = props.menuItems.map(item => (
         <li key={item.id} className={`${item.name.toLowerCase().includes(searchValue.toLowerCase()) ? "grid" : "hidden"} ${currentCategory === item.category || currentCategory === "all" ? "grid" : "hidden"} content-end relative`}>
-            <h1 className="">{item.name}</h1>
+            <h1>{item.name}</h1>
             <img
                 src={item.imgSrc}
                 alt={item.imgAlt}
                 loading="lazy"
-                className="rounded-xs h-65 object-cover"
+                className="rounded-xs w-full h-65 object-cover"
             />
             <div className="flex justify-between absolute bottom-0 p-1 w-full bg-black/60">
                 <p className="flex items-center text-xl">€{item.price}</p>
-                <button onClick={() => addToCart(item)} className="flex justify-center items-center gap-2 rounded-xs p-2 border border-metallic-gold bg-metallic-gold/30"><Plus /></button>
+                <button
+                    onClick={() => {
+                        addToCart(item)
+                        showNotification()
+                    }}
+                    title={checkQuantity(item.id) ? "You reached the maximum limit" : "Add to cart"}
+                    disabled={checkQuantity(item.id)}
+                    className="flex justify-center items-center gap-2 rounded-xs p-2 disabled:cursor-no-drop border border-metallic-gold bg-metallic-gold/30"
+                ><Plus />
+                </button>
             </div>
         </li>
     ))
 
     return (
         <>
-            <div className="flex flex-col items-center gap-6 py-6 h-full">
+            <div className="flex flex-col items-center gap-8 pt-6 h-full">
                 <Header cartItems={props.cartItems} setCartItems={props.setCartItems} />
-                <main className="flex gap-6 w-2/3 h-full text-silver">
+                <main className="flex gap-6 w-3/4 h-full text-silver">
                     <div className="grid content-start gap-6 w-full">
                         <div className="flex flex-1 rounded-xs focus-within:outline focus-within:outline-silver/70 text-silver/70 bg-evergreen-darker">
                             <span className="grid place-items-center px-3"><Search /></span>
@@ -68,6 +85,10 @@ export default function Menu(props) {
                         </ul>
                     </div>
                 </main>
+            </div>
+            <div className={`${isNotificationShown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"} flex gap-2 fixed bottom-6 right-6 transition-all duration-200 rounded-full p-2 px-4 select-none text-green-100 bg-evergreen-darker`}>
+                <Check className="" />
+                <h2>Successfully added to cart</h2>
             </div>
         </>
     )
