@@ -1,10 +1,13 @@
+
 @import "tailwindcss";
 
 @theme {
   --font-display: "Bricolage Grotesque";
   --color-silver: #cdcccd;
-  --color-metallic-gold: #c9ab31;
-  --color-evergreen: #003b31;
+  --color-metallic-gold: #C9AB31;
+  --color-pine-teal: #005244;
+  --color-evergreen-light: #003B31;
+  --color-evergreen-dark: #0D2D2A;
   --color-evergreen-darker: #00221f;
 }
 
@@ -14,7 +17,7 @@
   }
 
   body {
-    @apply bg-evergreen text-silver;
+    @apply bg-evergreen-dark text-silver;
   }
 
   button,

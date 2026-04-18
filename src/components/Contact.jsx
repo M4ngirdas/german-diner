@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react"
 
 export default function Contact() {
     return (
-        <section id="contact" className="grid gap-8">
+        <section id="contact" className="grid gap-8 w-[80%]">
             <article className="flex gap-6">
                 <address className="grid content-start gap-2 flex-1">
                     <h2 className="text-2xl not-italic">Have any questions?</h2>

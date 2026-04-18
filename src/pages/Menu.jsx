@@ -58,17 +58,17 @@ export default function Menu(props) {
 
     return (
         <>
-            <div className="flex flex-col items-center gap-8 pt-6 h-full">
+            <div className="flex flex-col items-center gap-8 h-full">
                 <Header cartItems={props.cartItems} setCartItems={props.setCartItems} />
-                <main className="flex gap-6 w-3/4 h-full text-silver">
+                <main className="flex gap-6 w-[80%] mt-24 py-16 h-full text-silver">
                     <div className="grid content-start gap-6 w-full">
-                        <div className="flex flex-1 rounded-xs focus-within:outline focus-within:outline-silver/70 text-silver/70 bg-evergreen-darker">
-                            <span className="grid place-items-center px-3"><Search /></span>
+                        <div className="flex flex-1 rounded-xs focus-within:outline focus-within:outline-metallic-gold text-silver/70 bg-evergreen-darker">
+                            <span className="grid place-items-center px-4"><Search /></span>
                             <input
                                 type="search"
                                 placeholder="What would you like to eat?"
                                 onChange={ev => setSearchValue(ev.target.value)}
-                                className="p-2 w-full outline-none"
+                                className="py-4 w-full outline-none"
                             />
                         </div>
                         <ul className="grid grid-cols-4 gap-4">{menuElements}</ul>
@@ -76,12 +76,12 @@ export default function Menu(props) {
                     <div className="grid content-start gap-4">
                         <h1 className="flex items-center gap-2 text-2xl"><MenuIcon />Categories</h1>
                         <ul className="grid gap-2">
-                            <li onClick={() => setCurrentCategory("all")} className={`${currentCategory === "all" ? "bg-evergreen-darker/50" : "bg-transparent"} p-1 px-2 cursor-pointer border-r mb-4`}>All</li>
-                            <li onClick={() => setCurrentCategory("mainDishes")} className={`${currentCategory === "mainDishes" ? "bg-evergreen-darker/50" : "bg-transparent"} p-1 px-2 cursor-pointer border-r`}>Main dishes</li>
-                            <li onClick={() => setCurrentCategory("soups")} className={`${currentCategory === "soups" ? "bg-evergreen-darker/50" : "bg-transparent"} p-1 px-2 cursor-pointer border-r`}>Soups</li>
-                            <li onClick={() => setCurrentCategory("bakery")} className={`${currentCategory === "bakery" ? "bg-evergreen-darker/50" : "bg-transparent"} p-1 px-2 cursor-pointer border-r`}>Bakery</li>
-                            <li onClick={() => setCurrentCategory("dessert")} className={`${currentCategory === "dessert" ? "bg-evergreen-darker/50" : "bg-transparent"} p-1 px-2 cursor-pointer border-r`}>Dessert</li>
-                            <li onClick={() => setCurrentCategory("drinks")} className={`${currentCategory === "drinks" ? "bg-evergreen-darker/50" : "bg-transparent"} p-1 px-2 cursor-pointer border-r`}>Drinks</li>
+                            <li onClick={() => setCurrentCategory("all")} className={`${currentCategory === "all" ? "bg-evergreen-darker/50" : "bg-transparent"} p-2 cursor-pointer border-r mb-4`}>All</li>
+                            <li onClick={() => setCurrentCategory("mainDishes")} className={`${currentCategory === "mainDishes" ? "bg-evergreen-darker/50" : "bg-transparent"} p-2 cursor-pointer border-r`}>Main dishes</li>
+                            <li onClick={() => setCurrentCategory("soups")} className={`${currentCategory === "soups" ? "bg-evergreen-darker/50" : "bg-transparent"} p-2 cursor-pointer border-r`}>Soups</li>
+                            <li onClick={() => setCurrentCategory("bakery")} className={`${currentCategory === "bakery" ? "bg-evergreen-darker/50" : "bg-transparent"} p-2 cursor-pointer border-r`}>Bakery</li>
+                            <li onClick={() => setCurrentCategory("dessert")} className={`${currentCategory === "dessert" ? "bg-evergreen-darker/50" : "bg-transparent"} p-2 cursor-pointer border-r`}>Dessert</li>
+                            <li onClick={() => setCurrentCategory("drinks")} className={`${currentCategory === "drinks" ? "bg-evergreen-darker/50" : "bg-transparent"} p-2 cursor-pointer border-r`}>Drinks</li>
                         </ul>
                     </div>
                 </main>

@@ -1,7 +1,7 @@
 
 import { nanoid } from "nanoid"
 
-export const menuItemsData = [
+export const menuData = [
     // main dishes
     {
         id: nanoid(),

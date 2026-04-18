@@ -1,14 +1,14 @@
 
 import { useState } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { menuItemsData } from "../data.js"
+import { menuData } from "../data/menu.js"
 
 import Home from "../pages/Home.jsx"
 import Menu from "../pages/Menu.jsx"
 
 export default function App() {
 
-    const [menuItems, setMenuItems] = useState(menuItemsData)
+    const [menuItems, setMenuItems] = useState(menuData)
     const [cartItems, setCartItems] = useState([])
 
     return (

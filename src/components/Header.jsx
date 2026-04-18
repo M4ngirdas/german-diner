@@ -1,7 +1,9 @@
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { ShoppingCart, User } from "lucide-react"
+
+import logo from "../images/logo.png"
 
 import Cart from "./Cart.jsx"
 
@@ -15,35 +17,35 @@ export default function Header(props) {
     }, 0)
 
     return (
-        <header className="flex items-center sticky top-4 p-3 z-50 w-3/4 rounded-full bg-evergreen-darker">
-            <h1 className="font-medium text-4xl">German diner</h1>
-            <div className="flex justify-center gap-3 flex-1">
-                <div className="relative">
-                    <a onClick={() => navigate("/home")} href="#start" className="peer hover:text-metallic-gold" >Home</a>
-                    <div className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full transition-all duration-250 opacity-0 -translate-y-full peer-hover:translate-y-0 peer-hover:opacity-100 bg-metallic-gold"></div>
+        <header className="flex justify-center transition-colors duration-300 w-full fixed top-0 py-6 z-50 shadow-lg bg-evergreen-darker">
+            <div className="flex justify-between items-center w-[80%]">
+                <div className="flex items-center gap-18">
+                    <img
+                        src={logo}
+                        alt="Bavaria lounge logo"
+                        className="w-35"
+                    />
+                    <div className="flex gap-3">
+                        <a onClick={() => navigate("/home")} href="#start" className="peer hover:text-metallic-gold" >Home</a>
+                        <a href="#reservation" className="peer hover:text-metallic-gold" >Reservation</a>
+                        <a onClick={() => navigate("/home")} href="#contact" className="peer hover:text-metallic-gold" >Contact</a>
+                        <span className="select-none">|</span>
+                        <button onClick={() => navigate("/menu")} className="peer hover:text-metallic-gold" >Menu</button>
+                    </div>
                 </div>
-                <span className="select-none">|</span>
-                <div className="relative">
-                    <a onClick={() => navigate("/home")} href="#contact" className="peer hover:text-metallic-gold" >Contact</a>
-                    <div className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full transition-all duration-250 opacity-0 -translate-y-full peer-hover:translate-y-0 peer-hover:opacity-100 bg-metallic-gold"></div>
+                <div className="flex gap-8">
+                    <div className="relative">
+                        <button onClick={() => setIsCartOpen(prev => !prev)} className="text-lg" className="flex items-center gap-2 text-lg rounded-sm hover:text-metallic-gold">
+                            <span className="relative">
+                                {props.cartItems.length > 0 ? <span className={`${totalCartItems > 99 ? "w-5" : ""} grid place-items-center gap-2 font-black absolute text-[11px] -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white`}>{totalCartItems}</span> : null}
+                                <ShoppingCart />
+                            </span>
+                            <span className="flex items-center gap-2">Cart</span>
+                        </button>
+                        {isCartOpen ? <Cart cartItems={props.cartItems} setCartItems={props.setCartItems} /> : null}
+                    </div>
+                    <button className="flex items-center gap-2 text-lgrounded-sm hover:text-metallic-gold"><User />Register</button>
                 </div>
-                <span className="select-none">|</span>
-                <div className="relative">
-                    <button onClick={() => navigate("/menu")} className="peer hover:text-metallic-gold" >Menu</button>
-                    <div className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full transition-all duration-250 opacity-0 -translate-y-full peer-hover:translate-y-0 peer-hover:opacity-100 bg-metallic-gold"></div>
-                </div>
-                <span className="select-none">|</span>
-                <div className="relative">
-                    <button className="peer hover:text-metallic-gold" >Table reservation</button>
-                    <div className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full transition-all duration-250 opacity-0 -translate-y-full peer-hover:translate-y-0 peer-hover:opacity-100 bg-metallic-gold"></div>
-                </div>
-            </div>
-            <div className="flex gap-3">
-                <div className="relative">
-                    <button onClick={() => setIsCartOpen(prev => !prev)} className="text-lg">{props.cartItems.length > 0 ? <span className={`${totalCartItems > 99 ? "w-5" : ""} grid place-items-center font-black absolute -top-1 -right-1 text-[11px] w-4 h-4 rounded-full bg-red-500`}>{totalCartItems}</span> : null}<ShoppingCart /></button>
-                    {isCartOpen ? <Cart cartItems={props.cartItems} setCartItems={props.setCartItems} /> : null}
-                </div>
-                <button className="text-lg"><User /></button>
             </div>
         </header>
     )
