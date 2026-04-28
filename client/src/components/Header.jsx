@@ -37,12 +37,11 @@ export default function Header(props) {
                         alt="Bavaria lounge logo"
                         className={`${isScrolled ? "w-25" : "w-35"} duration-300`}
                     />
-                    <div className="flex gap-3">
-                        <a onClick={() => navigate("/home")} href="#start" className="peer hover:text-metallic-gold" >Home</a>
-                        <a onClick={() => navigate("/home")} href="#reservation" className="peer hover:text-metallic-gold" >Reservation</a>
-                        <a onClick={() => navigate("/home")} href="#contact" className="peer hover:text-metallic-gold" >Contact</a>
-                        <span className="select-none">|</span>
-                        <button onClick={() => navigate("/menu")} className="peer hover:text-metallic-gold" >Menu</button>
+                    <div className="flex gap-6">
+                        <a onClick={() => navigate("/home")} href="#start" className="peer transition-all duration-300 hover:text-metallic-gold hover:scale-95">Home</a>
+                        <a onClick={() => navigate("/home")} href="#reservation" className="peer transition-all duration-300 hover:text-metallic-gold hover:scale-95" >Reservation</a>
+                        <a onClick={() => navigate("/home")} href="#contact" className="peer transition-all duration-300 hover:text-metallic-gold hover:scale-95">Contact</a>
+                        <a onClick={() => navigate("/menu")} className="peer transition-all duration-300 hover:text-metallic-gold hover:scale-95">Menu</a>
                     </div>
                 </div>
                 <div className="flex gap-8">
