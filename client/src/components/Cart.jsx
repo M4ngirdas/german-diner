@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom"
-import { ChevronDown, ChevronRight, ChevronUp, ShoppingCart, X } from "lucide-react"
+import { LuChevronDown, LuChevronRight, LuChevronUp, LuShoppingCart, LuX } from "react-icons/lu"
 
 export default function Cart(props) {
 
@@ -33,14 +33,14 @@ export default function Cart(props) {
                         disabled={item.quantity === 10}
                         onClick={() => quantityAdd(item.id)}
                         className="disabled:cursor-no-drop disabled:text-silver/30"
-                    ><ChevronUp />
+                    ><LuChevronUp />
                     </button>
                     <span>{item.quantity}</span>
                     <button
                         disabled={item.quantity === 1}
                         onClick={() => quantitySubtract(item.id)}
                         className="disabled:cursor-no-drop disabled:text-silver/30"
-                    ><ChevronDown />
+                    ><LuChevronDown />
                     </button>
                 </div>
                 <div>
@@ -48,18 +48,18 @@ export default function Cart(props) {
                     <p className="flex gap-2">€{item.price * item.quantity}</p>
                 </div>
             </div>
-            <button onClick={() => removeFromCart(item.id)} className="grid place-items-center z-10 w-7 h-7 transition-all duration-300 ease-out hover:backdrop-blur-sm hover:bg-silver/20"><X /></button>
+            <button onClick={() => removeFromCart(item.id)} className="grid place-items-center z-10 w-7 h-7 transition-all duration-300 ease-out hover:backdrop-blur-sm hover:bg-silver/20"><LuX /></button>
         </li>
     ))
 
     return (
         <div className="grid gap-4 w-sm rounded-xl absolute left-1/2 -translate-x-1/2 p-4 border border-silver/30 bg-evergreen-darker">
-            <h2 className="flex items-center gap-2 text-2xl"><ShoppingCart />CART</h2>
+            <h2 className="flex items-center gap-2 text-2xl"><LuShoppingCart />CART</h2>
             <div className="grid gap-2">
                 {props.cartItems.length === 0 ? <p>your cart is empty!<br /> <a onClick={() => navigate("/menu")} className="underline text-metallic-gold">explore our menu</a></p> : null}
                 <ul className={`${props.cartItems.length > 3 ? "w-full h-90 overflow-y-scroll pr-2" : ""} flex flex-col gap-2`}>{cartElements}</ul>
                 {props.cartItems.length !== 0 ? <p className="text-lg">Total: €{total}</p> : null}
-                {props.cartItems.length !== 0 ? <button className="flex justify-between items-center gap-2 rounded-xs py-2 px-4 border border-metallic-gold bg-metallic-gold/40">Continue to payment <ChevronRight /></button> : null}
+                {props.cartItems.length !== 0 ? <button className="flex justify-between items-center gap-2 rounded-xs py-2 px-4 border border-metallic-gold bg-metallic-gold/40">Continue to payment <LuChevronRight /></button> : null}
             </div>
         </div>
     )

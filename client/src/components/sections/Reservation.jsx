@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 import { fourSeatTablesData, twoSeatTablesData } from "../../data/tables.js"
-import { Check, LoaderCircle } from "lucide-react"
+import { LuCheck, LuLoaderCircle } from "react-icons/lu"
 
 export default function Reservation() {
 
@@ -120,10 +120,10 @@ export default function Reservation() {
                             </div>
                         </div>
                         <p className={`${selectedTable === undefined ? "text-silver/70" : "text-silver"}`}>{selectedTable === undefined ? "No table selected." : `Selected: Table ${selectedTable.id}, Seats ${selectedTable.seats}`}</p>
-                        <button type="submit" disabled={selectedTable === undefined || nameValue.length <= 0 || emailValue.length < 3 || !emailValue.includes("@") || isLoading} className="w-full rounded-sm px-6 py-4 font-medium tracking-wider transition-opacity duration-200 disabled:cursor-no-drop disabled:opacity-60 border-b border-metallic-gold bg-metallic-gold/20 text-metallic-gold">{isLoading ? <span className="flex justify-center gap-2"><LoaderCircle className="animate-spin" /> LOADING</span> : "CONFIRM RESERVATION"}</button>
+                        <button type="submit" disabled={selectedTable === undefined || nameValue.length <= 0 || emailValue.length < 3 || !emailValue.includes("@") || isLoading} className="w-full rounded-sm px-6 py-4 font-medium tracking-wider transition-opacity duration-200 disabled:cursor-no-drop disabled:opacity-60 border-b border-metallic-gold bg-metallic-gold/20 text-metallic-gold">{isLoading ? <span className="flex justify-center gap-2"><LuLoaderCircle className="animate-spin" /> LOADING</span> : "CONFIRM RESERVATION"}</button>
                     </div>
                     <div className={`${success ? "opacity-100 translate-y-0 z-20" : "opacity-0 -translate-y-5 -z-50"} flex items-center gap-4 rounded-sm px-3 py-6 h-fit transition-all duration-400 bg-evergreen-light`}>
-                        <span className="grid place-items-center p-2 rounded-sm text-metallic-gold"><Check size={30} /></span>
+                        <span className="grid place-items-center p-2 rounded-sm text-metallic-gold"><LuCheck size={30} /></span>
                         <div>
                             <h1 className="font-medium">Reservation confirmed</h1>
                             <p className="text-sm text-silver/70">Check email for details.</p>
@@ -131,7 +131,7 @@ export default function Reservation() {
                     </div>
                 </form>
             </aside>
-            <article className="grid p-3 rounded-sm w-full bg-evergreen-darker">
+            <article className="grid p-4 rounded-sm w-full bg-evergreen-darker">
                 <div className="flex gap-8">
                     <div className="grid content-between">
                         <div className="flex gap-12">{fourSeatTableElements}</div>

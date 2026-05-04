@@ -5,24 +5,16 @@ import { menuData } from "../data/menu.js"
 
 import Home from "../pages/Home.jsx"
 import Menu from "../pages/Menu.jsx"
+import PageNotFound from "../pages/PageNotFound.jsx"
 
 export default function App() {
 
     const [menuItems, setMenuItems] = useState(menuData)
     const [cartItems, setCartItems] = useState([])
 
-    function ScrollToTop() {
-        const { pathname } = useLocation()
-        useEffect(() => {
-            window.scrollTo(0, 0)
-        }, [pathname])
-        return null
-    }
-
     return (
         <>
             <BrowserRouter>
-                <ScrollToTop />
                 <Routes>
                     {["/", "/home"].map((path, index) => (
                         <Route key={index} path={path} element={<Home cartItems={cartItems} setCartItems={setCartItems} />} />
@@ -37,6 +29,7 @@ export default function App() {
                         />
                     }
                     />
+                    <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </BrowserRouter>
         </>

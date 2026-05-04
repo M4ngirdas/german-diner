@@ -1,5 +1,5 @@
 
-import { Mail, MapPin, Phone } from "lucide-react"
+import { LuMail, LuMapPin, LuPhone } from "react-icons/lu"
 
 export default function Contact() {
     return (
@@ -13,11 +13,11 @@ export default function Contact() {
                     <address className="grid content-start w-1/2">
                         <div className="grid gap-2">
                             <div className="flex items-center gap-2">
-                                <span className="p-2 rounded-sm bg-evergreen-light"><Mail /></span>
+                                <span className="p-2 rounded-sm bg-evergreen-light"><LuMail className="text-xl" /></span>
                                 <p className="">bavaria.lounge@example.com</p>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="p-2 rounded-sm bg-evergreen-light"><Phone /></span>
+                                <span className="p-2 rounded-sm bg-evergreen-light"><LuPhone className="text-xl" /></span>
                                 <p>+49 00 00000000</p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ export default function Contact() {
                             className="w-full h-full rounded-sm">
                         </iframe>
                     </div>
-                    <p className="flex items-center gap-2 h-fit"><MapPin /> Bavaria</p>
+                    <p className="flex items-center gap-2 h-fit"><LuMapPin className="text-xl" /> Bavaria</p>
                 </div>
             </article>
         </section>

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { ShoppingCart, User } from "lucide-react"
+import { LuShoppingCart } from "react-icons/lu"
 
 import logo from "../images/logo.png"
 import Cart from "./Cart.jsx"
@@ -29,7 +29,7 @@ export default function Header(props) {
     }, [])
 
     return (
-        <header className={`${isScrolled ? "py-3" : "py-6"} flex justify-center transition-all duration-300 w-full fixed top-0 z-49 shadow-lg bg-evergreen-darker`}>
+        <header className={`${isScrolled ? "py-3" : "py-6"} flex justify-center transition-all duration-300 w-full fixed top-0 z-48 shadow-lg bg-evergreen-darker`}>
             <div className="flex justify-between items-center w-[80%]">
                 <div className="flex items-center gap-18">
                     <img
@@ -49,7 +49,7 @@ export default function Header(props) {
                         <button onClick={() => setIsCartOpen(prev => !prev)} className="flex items-center gap-2 text-lg rounded-sm hover:text-metallic-gold">
                             <span className="relative">
                                 {props.cartItems.length > 0 ? <span className={`${totalCartItems > 99 ? "w-5" : ""} grid place-items-center gap-2 font-black absolute text-[11px] -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white`}>{totalCartItems}</span> : null}
-                                <ShoppingCart />
+                                <LuShoppingCart className="text-xl" />
                             </span>
                             <span className="flex items-center gap-2">Cart</span>
                         </button>

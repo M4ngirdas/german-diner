@@ -13,15 +13,7 @@ export const menuData = [
     },
     {
         id: nanoid(),
-        name: "Potato dumplings",
-        price: 15,
-        category: "mainDishes",
-        imgSrc: "/src/images/menu/potato_dumplings.png",
-        imgAlt: "Potato dumplings"
-    },
-    {
-        id: nanoid(),
-        name: "Bavarian Pot Roast",
+        name: "Pot Roast",
         price: 15,
         category: "mainDishes",
         imgSrc: "/src/images/menu/pot_roast.png",
@@ -35,8 +27,30 @@ export const menuData = [
         imgSrc: "/src/images/menu/bratwurst_and_sauerkraut.png",
         imgAlt: "Bratwurst and sauerkraut"
     },
-
-
+    {
+        id: nanoid(),
+        name: "Potato dumplings",
+        price: 15,
+        category: "mainDishes",
+        imgSrc: "/src/images/menu/potato_dumplings.png",
+        imgAlt: "Potato dumplings"
+    },
+    {
+        id: nanoid(),
+        name: "Croissant sandwich",
+        price: 15,
+        category: "mainDishes",
+        imgSrc: "/src/images/menu/croissant_sandwich.png",
+        imgAlt: "Croissant sandwich"
+    },
+    {
+        id: nanoid(),
+        name: "Baked eggs",
+        price: 15,
+        category: "mainDishes",
+        imgSrc: "/src/images/menu/baked_eggs.png",
+        imgAlt: "Baked eggs"
+    },
 
     // soups
     {
@@ -56,13 +70,11 @@ export const menuData = [
         imgAlt: "Goulash soup"
     },
 
-
-
     // bakery
     {
         id: nanoid(),
         name: "Pretzel",
-        price: 3,
+        price: 4,
         category: "bakery",
         imgSrc: "/src/images/menu/pretzel.png",
         imgAlt: "Pretzel"
@@ -75,8 +87,14 @@ export const menuData = [
         imgSrc: "/src/images/menu/cinamon_rolls.png",
         imgAlt: "Cinamon rolls"
     },
-
-
+    {
+        id: nanoid(),
+        name: "Croissant",
+        price: 3,
+        category: "bakery",
+        imgSrc: "/src/images/menu/croissant.png",
+        imgAlt: "Croissant"
+    },
 
     // dessert
     {
@@ -96,8 +114,6 @@ export const menuData = [
         imgAlt: "Red berry pudding"
     },
 
-
-
     // drinks
     {
         id: nanoid(),
@@ -114,5 +130,13 @@ export const menuData = [
         category: "drinks",
         imgSrc: "/src/images/menu/dark_beer.png",
         imgAlt: "Dark beer"
-    }
+    },
+        {
+        id: nanoid(),
+        name: "Apfelschorle",
+        price: 6,
+        category: "drinks",
+        imgSrc: "/src/images/menu/apfelschorle.png",
+        imgAlt: "Apfelschorle"
+    },
 ]
